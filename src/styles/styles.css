@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --accent: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-zinc-50 text-zinc-900;
+}
+
+@layer components {
+  .section {
+    @apply py-12 md:py-20 lg:py-28;
+  }
+
+  .page-container {
+    @apply mx-auto max-w-6xl px-6;
+  }
+}
