@@ -1,4 +1,4 @@
-import profileImage from "../assets/images/profile.png";
+import profileImage from "../assets/images/profile.jpg";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 

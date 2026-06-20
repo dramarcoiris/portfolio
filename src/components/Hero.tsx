@@ -27,7 +27,7 @@ export default function Hero() {
       className="relative overflow-hidden bg-[linear-gradient(180deg,var(--hero-bg)_0%,var(--hero-bg)_58%,var(--background)_100%)]"
     >
       <div className="page-container relative z-10">
-        <div className="mx-auto flex min-h-[100svh] max-w-4xl flex-col items-center text-center pt-28 pb-10 md:pt-32 md:pb-12">
+        <div className="mx-auto flex min-h-svh max-w-4xl flex-col items-center text-center pt-28 pb-10 md:pt-32 md:pb-12">
           <div className="flex-1 min-h-10 md:min-h-16" />
 
           <motion.div
