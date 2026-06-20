@@ -33,10 +33,11 @@ export default function Skills() {
             Herramientas que utilizo para dar vida a las ideas.
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="section-text mt-6 max-w-3xl">
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
             Trabajo con tecnologías de frontend y backend, herramientas cloud y
-            software de diseño que me permiten moverme entre desarrollo,
-            identidad visual y producto digital.
+            software de diseño que me permiten moverme con soltura entre
+            desarrollo web, identidad visual y diseño de interfaces para
+            producto digital.
           </motion.p>
         </motion.div>
 
@@ -56,7 +57,7 @@ export default function Skills() {
 
                   return (
                     <div key={tech.name} className="flex items-center gap-3">
-                      <Icon className="text-2xl text-(--accent)" />
+                      <Icon className="text-2xl text-(--accent-warm)" />
                       <span className="font-medium text-(--foreground)">
                         {tech.name}
                       </span>

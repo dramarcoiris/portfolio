@@ -16,6 +16,16 @@
   --accent-warm-soft: #f3e0d8;
 
   --hero-bg: #e8f4f1;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(31, 26, 23, 0.04);
+
+  /* About / trajectory banner */
+  --banner-bg: #fffdfb;
+  --banner-panel: #dcefeb;
+  --banner-panel-strong: #c9e2dd;
+  --banner-meta-bg: #f3f7f6;
+  --banner-accent-line: #a8cec8;
 }
 
 html {
@@ -30,7 +40,7 @@ body {
 
 @layer components {
   .section-anchor {
-    scroll-margin-top: 3rem;
+    croll-margin-top: 3rem;
   }
 
   .section {
@@ -87,6 +97,15 @@ body {
     color: var(--accent);
   }
 
+  .btn-link {
+    @apply inline-flex items-center gap-2 text-sm font-medium transition-colors;
+    color: var(--foreground);
+  }
+
+  .btn-link:hover {
+    color: var(--accent);
+  }
+
   .chip {
     @apply rounded-full border px-3 py-1 text-sm;
     background-color: var(--surface);
@@ -101,37 +120,10 @@ body {
     color: var(--foreground);
   }
 
-  .project-preview {
-    @apply aspect-16/10 border-b;
-    border-color: var(--border);
-    background: linear-gradient(135deg, #f3e4ea 0%, #fbf6f8 100%);
-  }
-
-  .hero-scroll-indicator {
-    @apply flex flex-col items-center gap-2 transition-colors;
-    color: var(--muted);
-  }
-
-  .hero-scroll-indicator:hover {
-    color: var(--accent);
-  }
-
-  .hero-scroll-text {
-    @apply text-sm uppercase tracking-[0.2em];
-  }
-
-  .hero-scroll-arrow {
-    @apply text-lg transition-transform duration-300;
-  }
-
-  .hero-scroll-indicator:hover .hero-scroll-arrow {
-    transform: translateY(4px);
-  }
-
   .nav-link {
     @apply relative inline-flex items-center text-sm transition-colors;
     color: var(--muted);
-  } 
+  }
 
   .nav-link::after {
     content: "";
@@ -153,32 +145,5 @@ body {
 
   .nav-link:hover::after {
     transform: scaleX(1);
-  }
-
-  .project-preview {
-  @apply aspect-16/10 border-b;
-  border-color: var(--border);
-}
-
-  .project-preview--cool {
-    background: linear-gradient(
-      135deg,
-      var(--accent-soft) 0%,
-      #eef7f5 100%
-    );
-  }
-
-  .project-preview--warm {
-    background: linear-gradient(
-      135deg,
-      var(--accent-warm-soft) 0%,
-      #fbf4ef 100%
-    );
-  }
-
-  .project-preview {
-    @apply aspect-16/10 border-b;
-    border-color: var(--border);
-    background-color: var(--accent-soft);
   }
 }

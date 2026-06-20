@@ -1,0 +1,30 @@
+@reference "tailwindcss";
+
+@layer components {
+    .hero-scroll-indicator {
+        @apply flex flex-col items-center gap-2 transition-colors;
+        color: var(--muted);
+    }
+
+    .hero-scroll-indicator:hover {
+        color: var(--accent);
+    }
+
+    .hero-scroll-text {
+        @apply text-sm uppercase tracking-[0.2em];
+    }
+
+    .hero-scroll-arrow {
+        @apply text-lg transition-transform duration-300;
+    }
+
+    .hero-scroll-indicator:hover .hero-scroll-arrow {
+        transform: translateY(4px);
+    }
+
+    .project-preview {
+        @apply aspect-16/10 border-b;
+        border-color: var(--border);
+        background-color: var(--accent-soft);
+    }
+}

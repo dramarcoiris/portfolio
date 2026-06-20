@@ -1,6 +1,7 @@
 import profileImage from "../assets/images/profile.jpg";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -32 },
@@ -36,7 +37,7 @@ export default function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-[320px] sm:max-w-95 md:max-w-md"
         >
-          <div className="absolute -left-6 top-10 h-[84%] w-[84%] rounded-[58%_42%_55%_45%/44%_53%_47%_56%] bg-(--accent-soft) sm:-left-8" />
+          <div className="absolute -left-6 top-10 h-[84%] w-[84%] rounded-[58%_42%_55%_45%/44%_53%_47%_56%] bg-(--accent-warm-soft) sm:-left-8" />
 
           <div className="about-image-frame relative overflow-hidden rounded-[42%_58%_38%_62%/36%_30%_70%_64%] border border-(--border) bg-(--surface)">
             <img
@@ -44,6 +45,13 @@ export default function About() {
               alt="Victoria Cejas"
               className="h-full w-full object-cover"
             />
+          </div>
+
+          <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+            <span className="chip inline-flex items-center gap-2 shadow-sm">
+              <FaMapMarkerAlt className="text-sm text-(--accent)" />
+              Málaga, España
+            </span>
           </div>
         </motion.div>
 
@@ -81,10 +89,9 @@ export default function About() {
           </div>
 
           <div className="mt-8">
-            <span className="chip inline-flex items-center gap-2">
-              <FaMapMarkerAlt className="text-sm text-(--accent)" />
-              Málaga, España
-            </span>
+            <Link to="/about" className="btn-primary">
+              Conoce mi trayectoria
+            </Link>
           </div>
         </motion.div>
       </motion.div>

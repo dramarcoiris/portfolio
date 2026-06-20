@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
-import type { ProjectCategory } from "../types/project";
+import type { ProjectCategory } from "../types/Project";
 import ProjectCard from "./ProjectCard";
 
 type Filter = "all" | ProjectCategory;
@@ -76,7 +76,7 @@ export default function Projects() {
             Trabajos recientes y con mucho amor.
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="section-text mt-6 max-w-3xl">
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
             Aplicaciones desarrolladas utilizando tecnologías frontend, backend
             y cloud, combinando diseño, experiencia de usuario y arquitectura
             web.

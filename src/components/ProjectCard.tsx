@@ -1,11 +1,17 @@
-import type Project from "../types/project";
-import { Link } from "react-router-dom";
+import type Project from "../types/Project";
 
 interface Props {
   project: Project;
 }
 
 export default function ProjectCard({ project }: Props) {
+  const isDesign = project.categories.includes("design");
+  const isDevelopment = project.categories.includes("development");
+
+  // Mantiene tu text-(--muted) original por defecto, y solo aplica el warm si es de diseño
+  const labelColorClass =
+    isDesign && !isDevelopment ? "text-(--accent-warm)" : "text-(--muted)";
+
   const categoryLabel = project.categories
     .map((category) => (category === "development" ? "Desarrollo" : "Diseño"))
     .join(" · ");
@@ -18,25 +24,30 @@ export default function ProjectCard({ project }: Props) {
     project.images?.[0];
 
   return (
-    <article className="surface-card surface-card-hover group overflow-hidden">
-      <Link to={`/projects/${project.slug}`} className="block h-full">
+    // Quitamos "surface-card-hover" y "group" para que sea 100% estático
+    <article className="surface-card overflow-hidden">
+      <div className="block h-full">
         {coverImage && (
+          // Limpio de efectos hover en la imagen
           <div className="project-preview overflow-hidden">
             <img
               src={coverImage.src}
               alt={coverImage.alt}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover"
             />
           </div>
         )}
 
         <div className="p-8">
-          <p className="text-base text-(--muted)">{categoryLabel}</p>
+          {/* Tu párrafo original con tu text-base intacto */}
+          <p className={`text-base ${labelColorClass}`}>{categoryLabel}</p>
 
-          <h3 className="mt-3 text-2xl font-bold text-(--foreground) transition-colors group-hover:text-(--accent)">
+          {/* Tu título original limpio de transiciones y hovers */}
+          <h3 className="mt-3 text-2xl font-bold text-(--foreground)">
             {project.title}
           </h3>
 
+          {/* Tu descripción original exactamente igual */}
           <p className="section-text mt-4">{project.shortDescription}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -52,13 +63,8 @@ export default function ProjectCard({ project }: Props) {
               </span>
             )}
           </div>
-
-          <p className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-(--muted) transition-colors group-hover:text-(--accent)">
-            Ver detalles
-            <span aria-hidden="true">→</span>
-          </p>
         </div>
-      </Link>
+      </div>
     </article>
   );
 }

@@ -78,10 +78,10 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] uppercase tracking-[0.2em] text-(--muted) sm:text-[0.78rem]"
             >
-              <span>Full Stack</span>
-              <span className="h-1 w-1 rounded-full bg-(--accent)" />
+              <span>Full Stack Developer</span>
+              <span className="h-1 w-1 rounded-full bg-(--accent-warm)" />
               <span>Diseño gráfico</span>
-              <span className="h-1 w-1 rounded-full bg-(--accent)" />
+              <span className="h-1 w-1 rounded-full bg-(--accent-warm)" />
               <span>Producto digital</span>
             </motion.div>
           </motion.div>
@@ -98,10 +98,12 @@ export default function Hero() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <span className="hero-scroll-text">Conóceme</span>
+                  <span className="hero-scroll-text text-(--accent-warm) hover:text-(--accent-dark) transition-colors">
+                    Conóceme
+                  </span>
 
                   <motion.span
-                    className="hero-scroll-arrow"
+                    className="hero-scroll-arrow text-(--accent-warm) hover:text-(--accent-dark) transition-colors"
                     animate={{ y: [0, 8, 0] }}
                     transition={{
                       duration: 1.8,
