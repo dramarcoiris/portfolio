@@ -1,4 +1,4 @@
-import type Project from "../types/Project";
+import type Project from "../types/project";
 import { Link } from "react-router-dom";
 
 interface Props {

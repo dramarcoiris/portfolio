@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
-import type { ProjectCategory } from "../types/Project";
+import type { ProjectCategory } from "../types/project";
 import ProjectCard from "./ProjectCard";
 
 type Filter = "all" | ProjectCategory;
