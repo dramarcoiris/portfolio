@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
-  --muted: #71717a;
-  --accent: #2563eb;
+  --background: #f7f4f1;
+  --surface: #fffdfb;
+  --foreground: #1f1a17;
+  --muted: #6f655f;
+
+  --accent: #5f9f99;
+  --accent-dark: #4b847f;
+  --accent-soft: #dcefeb;
+
+  --border: #e8dfd8;
+
+  --accent-warm: #b96d56;
+  --accent-warm-soft: #f3e0d8;
+
+  --hero-bg: #e8f4f1;
 }
 
 html {
@@ -12,15 +23,156 @@ html {
 }
 
 body {
-  @apply bg-zinc-50 text-zinc-900;
+  @apply antialiased;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 @layer components {
+  .section-anchor {
+    scroll-margin-top: 3rem;
+  }
+
   .section {
     @apply py-12 md:py-20 lg:py-28;
   }
 
   .page-container {
-    @apply mx-auto max-w-6xl px-6;
+    @apply mx-auto max-w-6xl px-4 sm:px-6;
+  }
+
+  .section-label {
+    @apply mb-2 text-sm uppercase tracking-[0.3em];
+    color: var(--accent);
+  }
+
+  .section-title {
+    @apply text-4xl font-bold md:text-5xl;
+    color: var(--foreground);
+  }
+
+  .section-text {
+    @apply text-lg leading-relaxed;
+    color: var(--muted);
+  }
+
+  .surface-card {
+    @apply rounded-3xl border shadow-sm transition-all duration-300;
+    background-color: var(--surface);
+    border-color: var(--border);
+  }
+
+  .surface-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium text-white transition;
+    background-color: var(--accent);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-dark);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border px-6 py-3 font-medium transition;
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .chip {
+    @apply rounded-full border px-3 py-1 text-sm;
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+
+  .chip-muted {
+    @apply rounded-full border px-4 py-2 text-sm;
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+
+  .project-preview {
+    @apply aspect-16/10 border-b;
+    border-color: var(--border);
+    background: linear-gradient(135deg, #f3e4ea 0%, #fbf6f8 100%);
+  }
+
+  .hero-scroll-indicator {
+    @apply flex flex-col items-center gap-2 transition-colors;
+    color: var(--muted);
+  }
+
+  .hero-scroll-indicator:hover {
+    color: var(--accent);
+  }
+
+  .hero-scroll-text {
+    @apply text-sm uppercase tracking-[0.2em];
+  }
+
+  .hero-scroll-arrow {
+    @apply text-lg transition-transform duration-300;
+  }
+
+  .hero-scroll-indicator:hover .hero-scroll-arrow {
+    transform: translateY(4px);
+  }
+
+  .nav-link {
+    @apply relative inline-flex items-center text-sm transition-colors;
+    color: var(--muted);
+  } 
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    height: 1.5px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 220ms ease;
+    background-color: var(--accent);
+    border-radius: 999px;
+  }
+
+  .nav-link:hover {
+    color: var(--accent);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .project-preview {
+  @apply aspect-16/10 border-b;
+  border-color: var(--border);
+}
+
+  .project-preview--cool {
+    background: linear-gradient(
+      135deg,
+      var(--accent-soft) 0%,
+      #eef7f5 100%
+    );
+  }
+
+  .project-preview--warm {
+    background: linear-gradient(
+      135deg,
+      var(--accent-warm-soft) 0%,
+      #fbf4ef 100%
+    );
   }
 }

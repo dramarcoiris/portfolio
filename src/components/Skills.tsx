@@ -1,34 +1,65 @@
+import { motion } from "framer-motion";
 import { skills } from "../data/skills";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section section-anchor">
       <div className="page-container">
-        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-zinc-500">
-          Tech Stack
-        </p>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
+          <motion.p variants={fadeUp} className="section-label">
+            Tecnologías
+          </motion.p>
 
-        <h2 className="max-w-4xl text-4xl font-bold">
-          Herramientas que utilizo para dar vida a las ideas.
-        </h2>
+          <motion.h2 variants={fadeUp} className="section-title max-w-4xl">
+            Herramientas que utilizo para dar vida a las ideas.
+          </motion.h2>
+
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-3xl">
+            Trabajo con tecnologías de frontend y backend, herramientas cloud y
+            software de diseño que me permiten moverme entre desarrollo,
+            identidad visual y producto digital.
+          </motion.p>
+        </motion.div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {skills.map((group) => (
             <article
               key={group.category}
-              className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              className="surface-card surface-card-hover p-8"
             >
-              <h3 className="mb-6 text-xl font-bold">{group.category}</h3>
+              <h3 className="mb-6 text-xl font-bold text-(--foreground)">
+                {group.category}
+              </h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
                 {group.technologies.map((tech) => {
                   const Icon = tech.icon;
 
                   return (
                     <div key={tech.name} className="flex items-center gap-3">
-                      <Icon className="text-2xl text-zinc-700" />
-
-                      <span className="font-medium">{tech.name}</span>
+                      <Icon className="text-2xl text-(--accent)" />
+                      <span className="font-medium text-(--foreground)">
+                        {tech.name}
+                      </span>
                     </div>
                   );
                 })}

@@ -56,7 +56,7 @@ export const skills = [
     category: "Design",
     technologies: [
       { name: "Figma", icon: SiFigma },
-      { name: "Adobe XD", icon: TbBrandAdobeXd },
+      { name: "Adobe Xd", icon: TbBrandAdobeXd },
       { name: "Photoshop", icon: TbBrandAdobePhotoshop },
       { name: "Illustrator", icon: TbBrandAdobeIllustrator },
     ],

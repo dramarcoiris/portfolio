@@ -5,16 +5,21 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./components/Contact";
+import Header from "./components/Header";
 
 export function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </main>
+    <>
+      <Header />
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+    </>
   );
 }
 

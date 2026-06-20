@@ -1,47 +1,76 @@
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
 export default function Contact() {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section section-anchor">
       <div className="page-container">
-        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-zinc-500">
-          Contacto
-        </p>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionContainer}
+        >
+          <motion.p variants={fadeUp} className="section-label">
+            Contacto
+          </motion.p>
 
-        <h2 className="text-4xl font-bold">Gracias por llegar hasta aquí.</h2>
+          <motion.h2 variants={fadeUp} className="section-title">
+            Gracias por llegar hasta aquí.
+          </motion.h2>
 
-        <p className="mt-6 max-w-2xl text-lg text-zinc-600">
-          Si te interesa mi trabajo o quieres hablar sobre desarrollo, diseño o
-          cualquier proyecto, estaré encantada de escucharte.
-        </p>
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-2xl">
+            Si te interesa mi perfil o quieres saber más sobre mi trabajo,
+            estaré encantada de hablar contigo.
+          </motion.p>
 
-        <div className="mt-12 border-t border-zinc-200 pt-8">
-          <div className="flex flex-wrap items-center gap-8">
+          <motion.div
+            variants={fadeUp}
+            className="mt-12 border-t border-(--border) pt-8"
+          >
             <a
               href="mailto:contact.soyvicky@gmail.com"
-              className="block text-xl font-medium transition-opacity hover:opacity-60"
+              className="inline-block text-2xl font-medium text-(--foreground) transition-colors hover:text-(--accent) md:text-3xl"
             >
               contact.soyvicky@gmail.com
             </a>
 
-            <span className="text-zinc-300">/</span>
-            <a
-              href="https://www.linkedin.com/in/victoria-cb"
-              target="_blank"
-              rel="noreferrer"
-              className="text-lg text-zinc-600 transition-colors hover:text-zinc-900"
-            >
-              LinkedIn ↗
-            </a>
-            <span className="text-zinc-300">/</span>
-            <a
-              href="https://github.com/dramarcoiris"
-              target="_blank"
-              rel="noreferrer"
-              className="text-lg text-zinc-600 transition-colors hover:text-zinc-900"
-            >
-              GitHub ↗
-            </a>
-          </div>
-        </div>
+            <div className="mt-6 flex flex-wrap items-center gap-6 text-base">
+              <a
+                href="https://www.linkedin.com/in/victoria-cb"
+                target="_blank"
+                rel="noreferrer"
+                className="text-(--muted) transition-colors hover:text-(--accent)"
+              >
+                LinkedIn ↗
+              </a>
+
+              <span className="text-(--border)">/</span>
+
+              <a
+                href="https://github.com/dramarcoiris"
+                target="_blank"
+                rel="noreferrer"
+                className="text-(--muted) transition-colors hover:text-(--accent)"
+              >
+                GitHub ↗
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

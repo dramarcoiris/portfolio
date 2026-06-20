@@ -1,56 +1,93 @@
 import profileImage from "../assets/images/profile.png";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -32 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 32 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const sectionContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function About() {
   return (
-    <section id="about" className="section">
-      <div className="page-container grid gap-12 md:grid-cols-2 md:items-center">
-        <div>
-          <img
-            src={profileImage}
-            alt="Victoria Cejas"
-            className="w-full max-w-md rounded-3xl object-cover"
-          />
-        </div>
+    <section id="about" className="section section-anchor">
+      <motion.div
+        className="page-container grid gap-12 md:grid-cols-2 md:items-center lg:gap-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={sectionContainer}
+      >
+        <motion.div
+          variants={fadeLeft}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative mx-auto w-full max-w-[320px] sm:max-w-95 md:max-w-md"
+        >
+          <div className="absolute -left-6 top-10 h-[84%] w-[84%] rounded-[58%_42%_55%_45%/44%_53%_47%_56%] bg-(--accent-soft) sm:-left-8" />
 
-        <div>
-          <p className="mb-2 text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Sobre mí
-          </p>
+          <div className="about-image-frame relative overflow-hidden rounded-[42%_58%_38%_62%/36%_30%_70%_64%] border border-(--border) bg-(--surface)">
+            <img
+              src={profileImage}
+              alt="Victoria Cejas"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </motion.div>
 
-          <h2 className="text-4xl font-bold">
-            Tecnología, diseño y curiosidad.
+        <motion.div
+          variants={fadeRight}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <p className="section-label">Me presento</p>
+
+          <h2 className="section-title max-w-xl">
+            Del diseño al desarrollo, sin perder la curiosidad.
           </h2>
 
-          <p className="mt-6 text-lg text-zinc-600">
-            Mi interés por la tecnología comenzó desde el lado creativo,
-            trabajando en diseño gráfico y comunicación visual. Con el tiempo
-            descubrí que quería participar también en la construcción de los
-            productos digitales, lo que me llevó a especializarme en desarrollo
-            web.
-          </p>
+          <div className="mt-6 space-y-4">
+            <p className="section-text">
+              Mi interés por la tecnología comenzó desde el lado creativo,
+              trabajando en diseño gráfico y comunicación visual. Con el tiempo
+              descubrí que quería participar también en la construcción de los
+              productos digitales, lo que me llevó a especializarme en
+              desarrollo web.
+            </p>
 
-          <p className="mt-4 text-lg text-zinc-600">
-            Actualmente disfruto creando aplicaciones que combinan
-            funcionalidad, experiencia de usuario y una base técnica sólida. Me
-            gusta entender cómo funcionan las cosas, aprender nuevas
-            herramientas y enfrentarme a proyectos que me obliguen a seguir
-            creciendo.
-          </p>
+            <p className="section-text">
+              Actualmente disfruto creando aplicaciones que combinan
+              funcionalidad, experiencia de usuario y una base técnica sólida.
+              Me gusta entender cómo funcionan las cosas, aprender nuevas
+              herramientas y enfrentarme a proyectos que me obliguen a seguir
+              creciendo.
+            </p>
 
-          <p className="mt-4 text-lg text-zinc-600">
-            Cuando no estoy programando, suelo dedicar tiempo a actividades
-            creativas, videojuegos, lectura y proyectos personales.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <div className="flex items-center gap-2 py-2">
-              <FaMapMarkerAlt />
-              <span>Málaga, España</span>
-            </div>
+            <p className="section-text">
+              Cuando no estoy programando, suelo dedicar tiempo a actividades
+              creativas, videojuegos, lectura y proyectos personales.
+            </p>
           </div>
-        </div>
-      </div>
+
+          <div className="mt-8">
+            <span className="chip inline-flex items-center gap-2">
+              <FaMapMarkerAlt className="text-sm text-(--accent)" />
+              Málaga, España
+            </span>
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
