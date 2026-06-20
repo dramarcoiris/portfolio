@@ -13,16 +13,22 @@ export default function ProjectCard({ project }: Props) {
   const hiddenTechnologies =
     project.technologies.length - project.featuredTechnologies.length;
 
+  const coverImage =
+    project.images?.find((image) => image.kind === "cover") ??
+    project.images?.[0];
+
   return (
     <article className="surface-card surface-card-hover group overflow-hidden">
       <Link to={`/projects/${project.slug}`} className="block h-full">
-        <div
-          className={`project-preview ${
-            project.categories.includes("design")
-              ? "project-preview--warm"
-              : "project-preview--cool"
-          }`}
-        />
+        {coverImage && (
+          <div className="project-preview overflow-hidden">
+            <img
+              src={coverImage.src}
+              alt={coverImage.alt}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
+        )}
 
         <div className="p-8">
           <p className="text-base text-(--muted)">{categoryLabel}</p>
