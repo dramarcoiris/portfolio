@@ -60,7 +60,7 @@ export default function Projects() {
   }, [filter]);
 
   return (
-    <section id="projects" className="section section-anchor">
+    <section className="section section-anchor">
       <div className="page-container">
         <motion.div
           initial="hidden"

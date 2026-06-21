@@ -24,7 +24,7 @@ const sectionContainer = {
 
 export default function About() {
   return (
-    <section id="about" className="section section-anchor">
+    <section className="section section-anchor">
       <motion.div
         className="page-container grid gap-12 md:grid-cols-2 md:items-center lg:gap-16"
         initial="hidden"
@@ -89,7 +89,7 @@ export default function About() {
           </div>
 
           <div className="mt-8">
-            <Link to="/about" className="btn-primary">
+            <Link to="/trayectoria" className="btn-primary">
               Conoce mi trayectoria
             </Link>
           </div>

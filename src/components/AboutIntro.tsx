@@ -32,8 +32,8 @@ export default function AboutIntro() {
           {/* Columna Izquierda */}
           <div className="space-y-8">
             <motion.div variants={fadeUp}>
-              <span className="text-sm uppercase tracking-[0.2em] text-(--accent-warm) font-medium block mb-3">
-                Hola, ¿qué tal? Soy Vicky.
+              <span className="text-sm uppercase tracking-[0.2em] text-(--accent-warm) font-semibold block mb-3">
+                Hola, ¿qué tal? Soy Vicky
               </span>
               <h1 className="text-4xl font-bold tracking-tight text-(--foreground) sm:text-5xl leading-[1.15]">
                 Me encanta juntar la{" "}
@@ -41,13 +41,13 @@ export default function AboutIntro() {
                   sensibilidad del diseño
                 </span>{" "}
                 con la{" "}
-                <span className="text-(--accent-dark)">lógica del código</span>.
+                <span className="text-(--accent-dark)">lógica del código</span>
               </h1>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="space-y-5 text-base md:text-lg text-(--foreground)/85 font-[350] leading-relaxed max-w-3xl"
+              className="space-y-5 section-text leading-relaxed max-w-3xl"
             >
               <p>
                 Tengo un ordenador entre las manos desde que tengo memoria. Mi
@@ -80,10 +80,10 @@ export default function AboutIntro() {
             className="p-6 md:p-8 space-y-8 rounded-2xl border border-(--accent-warm)/10 bg-white/60 backdrop-blur-md shadow-xs md:mt-8"
           >
             <div className="space-y-2">
-              <h3 className="text-xs uppercase tracking-[0.16em] text-(--accent)">
+              <h3 className="text-sm uppercase tracking-[0.16em] text-(--accent)">
                 Mi Enfoque
               </h3>
-              <p className="leading-relaxed text-(--muted) font-[350]">
+              <p className="leading-relaxed text-(--muted)">
                 Hacer que las cosas funcionen impecables por dentro y se sientan
                 naturales por fuera. Busco el equilibrio perfecto entre un
                 backend sólido y ordenado u una interfaz intuitiva, accesible y
@@ -94,7 +94,7 @@ export default function AboutIntro() {
             <hr className="border-(--border)/40" />
 
             {/* Cita */}
-            <div className="text-sm leading-relaxed text-(--muted) italic font-[350]">
+            <div className="leading-relaxed text-(--muted) italic font-[350]">
               "Al final, detrás de cada pantalla siempre hay una persona. Mi
               meta es que la tecnología no solo resuelva problemas lógicos, sino
               que se sienta cercana y un poquito más humana."

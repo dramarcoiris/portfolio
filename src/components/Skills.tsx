@@ -17,7 +17,7 @@ const staggerContainer = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="section section-anchor">
+    <section className="section section-anchor">
       <div className="page-container">
         <motion.div
           initial="hidden"

@@ -7,9 +7,8 @@ type NavLinkItem =
   | { label: string; type: "anchor"; href: string };
 
 const navLinks: NavLinkItem[] = [
-  { label: "Trayectoria", type: "route", href: "/about" },
-  // { label: "Proyectos", type: "route", href: "/projects" },
-  { label: "Contacto", type: "anchor", href: "/#contact" },
+  { label: "Trayectoria", type: "route", href: "/trayectoria" },
+  { label: "Proyectos", type: "route", href: "/proyectos" },
 ];
 
 export default function Header() {
