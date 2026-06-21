@@ -76,7 +76,7 @@ export default function Projects() {
             Trabajos recientes y con mucho amor.
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="section-text mt-6 max-w-3xl">
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
             Aplicaciones desarrolladas utilizando tecnologías frontend, backend
             y cloud, combinando diseño, experiencia de usuario y arquitectura
             web.

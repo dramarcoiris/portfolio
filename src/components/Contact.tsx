@@ -32,7 +32,7 @@ export default function Contact() {
             Gracias por llegar hasta aquí.
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="section-text mt-6 max-w-2xl">
+          <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
             Si te interesa mi perfil o quieres saber más sobre mi trabajo,
             estaré encantada de hablar contigo.
           </motion.p>
@@ -43,7 +43,7 @@ export default function Contact() {
           >
             <a
               href="mailto:contact.soyvicky@gmail.com"
-              className="inline-block text-2xl font-medium text-(--foreground) transition-colors hover:text-(--accent) md:text-3xl"
+              className="inline-block text-2xl font-medium text-(--foreground) transition-colors hover:text-(--accent-warm) md:text-3xl"
             >
               contact.soyvicky@gmail.com
             </a>

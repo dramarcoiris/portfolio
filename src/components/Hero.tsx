@@ -27,7 +27,7 @@ export default function Hero() {
       className="relative overflow-hidden bg-[linear-gradient(180deg,var(--hero-bg)_0%,var(--hero-bg)_58%,var(--background)_100%)]"
     >
       <div className="page-container relative z-10">
-        <div className="mx-auto flex min-h-[100svh] max-w-4xl flex-col items-center text-center pt-28 pb-10 md:pt-32 md:pb-12">
+        <div className="mx-auto flex min-h-svh max-w-4xl flex-col items-center text-center pt-28 pb-10 md:pt-32 md:pb-12">
           <div className="flex-1 min-h-10 md:min-h-16" />
 
           <motion.div
@@ -78,10 +78,10 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] uppercase tracking-[0.2em] text-(--muted) sm:text-[0.78rem]"
             >
-              <span>Full Stack</span>
-              <span className="h-1 w-1 rounded-full bg-(--accent)" />
+              <span>Full Stack Developer</span>
+              <span className="h-1 w-1 rounded-full bg-(--accent-warm)" />
               <span>Diseño gráfico</span>
-              <span className="h-1 w-1 rounded-full bg-(--accent)" />
+              <span className="h-1 w-1 rounded-full bg-(--accent-warm)" />
               <span>Producto digital</span>
             </motion.div>
           </motion.div>
@@ -98,10 +98,12 @@ export default function Hero() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <span className="hero-scroll-text">Conóceme</span>
+                  <span className="hero-scroll-text text-(--accent-warm) hover:text-(--accent-dark) transition-colors">
+                    Conóceme
+                  </span>
 
                   <motion.span
-                    className="hero-scroll-arrow"
+                    className="hero-scroll-arrow text-(--accent-warm) hover:text-(--accent-dark) transition-colors"
                     animate={{ y: [0, 8, 0] }}
                     transition={{
                       duration: 1.8,

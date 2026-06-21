@@ -1,34 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import Contact from "./components/Contact";
 import Header from "./components/Header";
-
-export function Home() {
-  return (
-    <>
-      <Header />
-
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-    </>
-  );
-}
+import LandingPage from "./pages/LandingPage";
+import AboutPage from "./pages/AboutPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import ScrollManager from "./components/ScrollManager";
 
 export function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-
-      <Route path="/projects/:slug" element={<ProjectDetail />} />
-    </Routes>
+    <>
+      <Header />
+      <ScrollManager />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+      </Routes>
+    </>
   );
 }

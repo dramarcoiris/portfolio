@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
-const navLinks = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Sobre mí", href: "#about" },
-  { label: "Tecnologías", href: "#skills" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Contacto", href: "#contact" },
+type NavLinkItem =
+  | { label: string; type: "route"; href: string }
+  | { label: string; type: "anchor"; href: string };
+
+const navLinks: NavLinkItem[] = [
+  { label: "Trayectoria", type: "route", href: "/about" },
+  // { label: "Proyectos", type: "route", href: "/projects" },
+  { label: "Contacto", type: "anchor", href: "/#contact" },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const location = useLocation();
+  const isLanding = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +31,13 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const getLinkHref = (link: NavLinkItem) => {
+    if (link.type === "route") return link.href;
+
+    // Contacto solo existe en la landing
+    return isLanding ? link.href : `/${link.href}`;
+  };
 
   return (
     <header
@@ -41,21 +54,25 @@ export default function Header() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <a
-              href="#hero"
+            <Link
+              to="/"
               className="text-sm font-semibold uppercase tracking-[0.12em] text-(--foreground) transition-colors hover:text-(--accent)"
               onClick={closeMenu}
             >
               Soy Vicky
-            </a>
+            </Link>
 
             <nav className="hidden md:block">
               <ul className="flex items-center gap-6 lg:gap-8">
                 {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href} className="nav-link">
+                  <li key={`${link.type}-${link.href}`}>
+                    <Link
+                      to={getLinkHref(link)}
+                      className="nav-link"
+                      onClick={closeMenu}
+                    >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -83,14 +100,14 @@ export default function Header() {
               <nav>
                 <ul className="flex flex-col gap-1">
                   {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
+                    <li key={`${link.type}-${link.href}`}>
+                      <Link
+                        to={getLinkHref(link)}
                         onClick={closeMenu}
                         className="block rounded-2xl px-4 py-3 text-sm text-(--foreground) transition-colors hover:bg-(--accent-soft)"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
