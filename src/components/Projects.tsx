@@ -73,7 +73,7 @@ export default function Projects() {
           </motion.p>
 
           <motion.h2 variants={fadeUp} className="section-title max-w-4xl">
-            Trabajos recientes y con mucho amor.
+            Trabajos recientes y con mucho amor
           </motion.h2>
 
           <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">

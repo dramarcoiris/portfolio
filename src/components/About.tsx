@@ -24,7 +24,7 @@ const sectionContainer = {
 
 export default function About() {
   return (
-    <section className="section section-anchor">
+    <section id="presentacion" className="section section-anchor">
       <motion.div
         className="page-container grid gap-12 md:grid-cols-2 md:items-center lg:gap-16"
         initial="hidden"
@@ -62,7 +62,7 @@ export default function About() {
           <p className="section-label">Me presento</p>
 
           <h2 className="section-title max-w-xl">
-            Del diseño al desarrollo, sin perder la curiosidad.
+            Del diseño al desarrollo, sin perder la curiosidad
           </h2>
 
           <div className="mt-6 space-y-4">

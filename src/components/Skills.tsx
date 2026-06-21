@@ -30,7 +30,7 @@ export default function Skills() {
           </motion.p>
 
           <motion.h2 variants={fadeUp} className="section-title max-w-4xl">
-            Herramientas que utilizo para dar vida a las ideas.
+            Herramientas que utilizo para dar vida a las ideas
           </motion.h2>
 
           <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">

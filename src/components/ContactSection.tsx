@@ -29,7 +29,7 @@ export default function Contact() {
           </motion.p>
 
           <motion.h2 variants={fadeUp} className="section-title">
-            Gracias por llegar hasta aquí.
+            Gracias por llegar hasta aquí
           </motion.h2>
 
           <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
