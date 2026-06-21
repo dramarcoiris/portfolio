@@ -1,0 +1,39 @@
+import { motion } from "framer-motion";
+import { trajectoryContent } from "../../data/trajectory";
+import { fadeUp } from "../../data/trajectoryAnimations";
+
+export default function AdditionalInfosection() {
+  const { additionalInfo } = trajectoryContent;
+  return (
+    <>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.08 }}
+        className="surface-card p-8 border border-(--border)/40 bg-white/90 backdrop-blur-sm"
+      >
+        <p className="section-label tracking-[0.2em] text-(--accent) font-medium mb-6">
+          Información adicional
+        </p>
+
+        <div className="mt-6 space-y-5">
+          {additionalInfo.map((item) => (
+            <div
+              key={item.id}
+              className="border-b border-(--border)/30 last:border-0 pb-4 last:pb-0"
+            >
+              <p className="text-sm uppercase tracking-[0.16em] text-(--muted)">
+                {item.label}
+              </p>
+              <p className="mt-2 text-lg font-medium text-(--foreground)">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </>
+  );
+}
