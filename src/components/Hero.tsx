@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -61,9 +62,9 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4"
             >
-              <a href="/proyectos" className="btn-primary w-full sm:w-auto">
+              <Link to="/proyectos" className="btn-primary w-full sm:w-auto">
                 Ver proyectos
-              </a>
+              </Link>
 
               <a href="#contact" className="btn-secondary w-full sm:w-auto">
                 Contacto
