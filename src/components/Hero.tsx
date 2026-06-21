@@ -34,13 +34,17 @@ export default function Hero() {
             animate="visible"
             transition={{ staggerChildren: 0.14 }}
           >
-            <motion.h1
+            <motion.div
               variants={fadeUp}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="text-5xl font-bold leading-none sm:text-6xl md:text-7xl lg:text-8xl"
+              className="w-full max-w-70 sm:max-w-90 md:max-w-125 lg:max-w-155"
             >
-              ¡Hola! Soy Vicky
-            </motion.h1>
+              <img
+                src="/logotipo.svg"
+                alt="SOYVICKY"
+                className="h-auto w-full"
+              />
+            </motion.div>
 
             <motion.p
               variants={fadeUp}
@@ -88,7 +92,7 @@ export default function Hero() {
             <AnimatePresence>
               {showScrollIndicator && (
                 <motion.a
-                  href="#about"
+                  href="#presentacion"
                   className="hero-scroll-indicator hidden md:flex"
                   aria-label="Ir a la sección Sobre mí"
                   initial={{ opacity: 0, y: 8 }}
