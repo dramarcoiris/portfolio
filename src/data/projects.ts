@@ -1,4 +1,6 @@
 import type Project from "../types/Project";
+import bringItUpCover from "../assets/images/projects/bring-it-up/cover.jpg";
+import entreRecuerdosCover from "../assets/images/projects/entre-recuerdos/cover.jpg";
 
 export const projects: Project[] = [
   {
@@ -38,11 +40,11 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/DaarkinBlade/Entre-Recuerdos",
     images: [
-      // {
-      //   src: entreRecuerdosCover,
-      //   alt: "Vista principal de Entre Recuerdos",
-      //   kind: "cover",
-      // },
+      {
+        src: entreRecuerdosCover,
+        alt: "Vista principal de Entre Recuerdos",
+        kind: "cover",
+      },
     ],
     sections: [
       {
@@ -115,11 +117,11 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/dramarcoiris/bring-it-up",
     images: [
-      // {
-      //   src: bringItUpCover,
-      //   alt: "Pantalla principal de Bring It Up!",
-      //   kind: "cover",
-      // },
+      {
+        src: bringItUpCover,
+        alt: "Pantalla principal de Bring It Up!",
+        kind: "cover",
+      },
     ],
     sections: [
       {

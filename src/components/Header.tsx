@@ -7,9 +7,8 @@ type NavLinkItem =
   | { label: string; type: "anchor"; href: string };
 
 const navLinks: NavLinkItem[] = [
-  { label: "Trayectoria", type: "route", href: "/about" },
-  // { label: "Proyectos", type: "route", href: "/projects" },
-  { label: "Contacto", type: "anchor", href: "/#contact" },
+  { label: "Trayectoria", type: "route", href: "/trayectoria" },
+  { label: "Proyectos", type: "route", href: "/proyectos" },
 ];
 
 export default function Header() {
@@ -34,35 +33,61 @@ export default function Header() {
 
   const getLinkHref = (link: NavLinkItem) => {
     if (link.type === "route") return link.href;
-
-    // Contacto solo existe en la landing
     return isLanding ? link.href : `/${link.href}`;
   };
+
+  // En desktop:
+  // - landing arriba del todo => header oculto
+  // - landing con scroll => header visible
+  // - páginas internas => header visible siempre
+  const showDesktopHeader = !isLanding || isScrolled;
+
+  const showMobileHeader = true;
 
   return (
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "py-4" : "py-5 md:py-6"
+        showDesktopHeader ? "py-4 md:py-5" : "py-4 md:py-5"
       }`}
     >
       <div className="page-container">
         <div
-          className={`mx-auto max-w-5xl rounded-full px-4 py-3 transition-all duration-300 md:px-6 ${
-            isScrolled
-              ? "border border-(--border) bg-white/78 shadow-sm backdrop-blur-md"
-              : "border border-transparent bg-transparent"
-          }`}
+          className={`
+            mx-auto max-w-5xl rounded-full px-4 py-3 transition-all duration-300 md:px-6
+            ${
+              showDesktopHeader
+                ? "border border-(--border) bg-white/78 shadow-sm backdrop-blur-md opacity-100"
+                : "border border-transparent bg-transparent opacity-100 md:opacity-0 md:pointer-events-none md:shadow-none md:backdrop-blur-none"
+            }
+          `}
         >
           <div className="flex items-center justify-between">
-            <Link
-              to="/"
-              className="text-sm font-semibold uppercase tracking-[0.12em] text-(--foreground) transition-colors hover:text-(--accent)"
-              onClick={closeMenu}
-            >
-              Soy Vicky
-            </Link>
+            <div className="flex items-center min-w-19.5 sm:min-w-24">
+              <Link
+                to="/"
+                className={`
+                  hidden md:inline-flex items-center transition-opacity duration-300 hover:opacity-80
+                  ${showDesktopHeader ? "opacity-100" : "opacity-0 pointer-events-none"}
+                `}
+                onClick={closeMenu}
+                aria-label="Ir a la página de inicio"
+                tabIndex={showDesktopHeader ? 0 : -1}
+              >
+                <img
+                  src="/logo.svg"
+                  alt="SOYVICKY"
+                  className="block h-4 w-auto sm:h-5"
+                />
+              </Link>
+            </div>
 
-            <nav className="hidden md:block">
+            <nav
+              className={`
+                hidden md:block transition-opacity duration-300
+                ${showDesktopHeader ? "opacity-100" : "opacity-0 pointer-events-none"}
+              `}
+              aria-hidden={!showDesktopHeader}
+            >
               <ul className="flex items-center gap-6 lg:gap-8">
                 {navLinks.map((link) => (
                   <li key={`${link.type}-${link.href}`}>
@@ -70,6 +95,7 @@ export default function Header() {
                       to={getLinkHref(link)}
                       className="nav-link"
                       onClick={closeMenu}
+                      tabIndex={showDesktopHeader ? 0 : -1}
                     >
                       {link.label}
                     </Link>
@@ -78,12 +104,18 @@ export default function Header() {
               </ul>
             </nav>
 
+            {/* Botón móvil: visible siempre */}
             <button
               type="button"
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-(--border) bg-(--surface) text-(--foreground) md:hidden"
+              className={`
+                flex h-10 w-10 items-center justify-center rounded-full
+                border border-(--border) bg-(--surface) text-(--foreground)
+                md:hidden
+                ${showMobileHeader ? "opacity-100" : "opacity-0 pointer-events-none"}
+              `}
             >
               {isMenuOpen ? (
                 <HiOutlineX className="text-xl" />

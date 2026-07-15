@@ -25,11 +25,11 @@ export default function Contact() {
           variants={sectionContainer}
         >
           <motion.p variants={fadeUp} className="section-label">
-            Contacto
+            Hablemos
           </motion.p>
 
           <motion.h2 variants={fadeUp} className="section-title">
-            Gracias por llegar hasta aquí.
+            Gracias por llegar hasta aquí
           </motion.h2>
 
           <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
@@ -43,12 +43,12 @@ export default function Contact() {
           >
             <a
               href="mailto:contact.soyvicky@gmail.com"
-              className="inline-block text-2xl font-medium text-(--foreground) transition-colors hover:text-(--accent-warm) md:text-3xl"
+              className="inline-block text-xl font-medium text-(--foreground) transition-colors hover:text-(--accent-warm) md:text-3xl"
             >
               contact.soyvicky@gmail.com
             </a>
 
-            <div className="mt-6 flex flex-wrap items-center gap-6 text-base">
+            <div className="mt-6 flex flex-wrap items-center gap-6">
               <a
                 href="https://www.linkedin.com/in/victoria-cb"
                 target="_blank"
@@ -67,6 +67,17 @@ export default function Contact() {
                 className="text-(--muted) transition-colors hover:text-(--accent)"
               >
                 GitHub ↗
+              </a>
+
+              <span className="text-(--border)">/</span>
+
+              <a
+                href="https://drive.google.com/file/d/19dp5Ta3qZX6JdjpHq8BOUZB5fw992-n7/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="text-(--muted) transition-colors hover:text-(--accent)"
+              >
+                Curriculum ↗
               </a>
             </div>
           </motion.div>

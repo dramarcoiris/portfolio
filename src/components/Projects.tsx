@@ -60,7 +60,7 @@ export default function Projects() {
   }, [filter]);
 
   return (
-    <section id="projects" className="section section-anchor">
+    <section className="section section-anchor">
       <div className="page-container">
         <motion.div
           initial="hidden"
@@ -73,7 +73,7 @@ export default function Projects() {
           </motion.p>
 
           <motion.h2 variants={fadeUp} className="section-title max-w-4xl">
-            Trabajos recientes y con mucho amor.
+            Trabajos recientes y con mucho amor
           </motion.h2>
 
           <motion.p variants={fadeUp} className="section-text mt-6 max-w-4xl">
