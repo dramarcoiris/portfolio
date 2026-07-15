@@ -42,7 +42,6 @@ export default function Header() {
   // - páginas internas => header visible siempre
   const showDesktopHeader = !isLanding || isScrolled;
 
-  // En móvil mantenemos siempre el botón visible
   const showMobileHeader = true;
 
   return (
@@ -63,7 +62,6 @@ export default function Header() {
           `}
         >
           <div className="flex items-center justify-between">
-            {/* Logo: solo visible cuando el header desktop está visible */}
             <div className="flex items-center min-w-19.5 sm:min-w-24">
               <Link
                 to="/"
@@ -76,14 +74,13 @@ export default function Header() {
                 tabIndex={showDesktopHeader ? 0 : -1}
               >
                 <img
-                  src="/logotipo.svg"
+                  src="/logo.svg"
                   alt="SOYVICKY"
                   className="block h-4 w-auto sm:h-5"
                 />
               </Link>
             </div>
 
-            {/* Navegación desktop: desaparece en la landing hasta que haces scroll */}
             <nav
               className={`
                 hidden md:block transition-opacity duration-300

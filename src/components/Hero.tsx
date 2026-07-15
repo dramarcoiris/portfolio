@@ -37,13 +37,9 @@ export default function Hero() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full max-w-70 sm:max-w-90 md:max-w-125 lg:max-w-155"
+              className="w-full max-w-70 sm:max-w-90 md:max-w-125 lg:max-w-155 xl:max-w-400"
             >
-              <img
-                src="/logotipo.svg"
-                alt="SOYVICKY"
-                className="h-auto w-full"
-              />
+              <img src="/logo.svg" alt="SOYVICKY" className="h-auto w-full" />
             </motion.div>
 
             <motion.p
