@@ -8,7 +8,6 @@ export default function ProjectCard({ project }: Props) {
   const isDesign = project.categories.includes("design");
   const isDevelopment = project.categories.includes("development");
 
-  // Mantiene tu text-(--muted) original por defecto, y solo aplica el warm si es de diseño
   const labelColorClass =
     isDesign && !isDevelopment ? "text-(--accent-warm)" : "text-(--muted)";
 
@@ -24,11 +23,9 @@ export default function ProjectCard({ project }: Props) {
     project.images?.[0];
 
   return (
-    // Quitamos "surface-card-hover" y "group" para que sea 100% estático
     <article className="surface-card overflow-hidden">
       <div className="block h-full">
         {coverImage && (
-          // Limpio de efectos hover en la imagen
           <div className="project-preview overflow-hidden">
             <img
               src={coverImage.src}
@@ -39,15 +36,15 @@ export default function ProjectCard({ project }: Props) {
         )}
 
         <div className="p-8">
-          {/* Tu párrafo original con tu text-base intacto */}
+          {/* Párrafo */}
           <p className={`text-base ${labelColorClass}`}>{categoryLabel}</p>
 
-          {/* Tu título original limpio de transiciones y hovers */}
+          {/* Título */}
           <h3 className="mt-3 text-2xl font-bold text-(--foreground)">
             {project.title}
           </h3>
 
-          {/* Tu descripción original exactamente igual */}
+          {/* Descripción */}
           <p className="section-text mt-4">{project.shortDescription}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
