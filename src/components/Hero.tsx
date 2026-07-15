@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
+import { FiDownload } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -66,8 +67,22 @@ export default function Hero() {
                 Ver proyectos
               </Link>
 
-              <a href="#contact" className="btn-secondary w-full sm:w-auto">
-                Contacto
+              <a
+                href="/Victoria_Cejas_CV.pdf"
+                download="Victoria_Cejas_CV.pdf"
+                className="btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <span>Descargar CV</span>
+                <FiDownload className="text-base" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/victoria-cb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full sm:w-auto"
+              >
+                LinkedIn
               </a>
             </motion.div>
 

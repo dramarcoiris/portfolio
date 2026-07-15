@@ -50,6 +50,16 @@ export default function Contact() {
 
             <div className="mt-6 flex flex-wrap items-center gap-6">
               <a
+                href="/Victoria_Cejas_CV.pdf"
+                download="Victoria_Cejas_CV.pdf"
+                className="text-(--muted) transition-colors hover:text-(--accent)"
+              >
+                <span>Descargar CV</span>
+              </a>
+
+              <span className="text-(--border)">/</span>
+
+              <a
                 href="https://www.linkedin.com/in/victoria-cb"
                 target="_blank"
                 rel="noreferrer"
@@ -67,17 +77,6 @@ export default function Contact() {
                 className="text-(--muted) transition-colors hover:text-(--accent)"
               >
                 GitHub ↗
-              </a>
-
-              <span className="text-(--border)">/</span>
-
-              <a
-                href="https://drive.google.com/file/d/19dp5Ta3qZX6JdjpHq8BOUZB5fw992-n7/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="text-(--muted) transition-colors hover:text-(--accent)"
-              >
-                Curriculum ↗
               </a>
             </div>
           </motion.div>
