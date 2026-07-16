@@ -107,8 +107,7 @@ export const trajectoryContent: TrajectoryContent = {
     },
     {
       id: "design-degree",
-      title:
-        "Título de Grado en Enseñanzas Artísticas Superiores de Diseño Gráfico",
+      title: "Grado en Enseñanzas Artísticas Superiores de Diseño Gráfico",
       institution: "Escuela Superior de Diseño · Estación Diseño",
       startDate: "2016",
       endDate: "2021",
