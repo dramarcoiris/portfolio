@@ -18,6 +18,18 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Función para scroll suave sin alterar la URL
+  const handleScrollTo = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,var(--hero-bg)_0%,var(--hero-bg)_58%,var(--background)_100%)]">
       <div className="page-container relative z-10">
@@ -60,6 +72,7 @@ export default function Hero() {
             >
               <a
                 href="#projects"
+                onClick={(e) => handleScrollTo(e, "projects")}
                 className="btn-primary w-full sm:w-auto text-center"
               >
                 Ver proyectos
@@ -102,6 +115,7 @@ export default function Hero() {
               {showScrollIndicator && (
                 <motion.a
                   href="#presentacion"
+                  onClick={(e) => handleScrollTo(e, "presentacion")}
                   className="hero-scroll-indicator hidden md:flex"
                   aria-label="Ir a la sección Sobre mí"
                   initial={{ opacity: 0, y: 8 }}
