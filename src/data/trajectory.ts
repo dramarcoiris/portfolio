@@ -102,27 +102,19 @@ export const trajectoryContent: TrajectoryContent = {
       startDate: "2024",
       endDate: "2026",
       summary:
-        "Formación orientada al desarrollo full stack, bases de datos, arquitectura web y construcción de aplicaciones completas.",
-      highlights: [
-        "Desarrollo frontend y backend.",
-        "Bases de datos relacionales y modelado.",
-        "Arquitectura web, despliegue y buenas prácticas de desarrollo.",
-      ],
+        "Formación orientada al desarrollo full stack, bases de datos, arquitectura web y construcción de aplicaciones web completas front-end y back-end.",
+      downloadUrl: "/pdf/certificado-notas-daw.pdf",
     },
     {
       id: "design-degree",
       title:
-        "Formación artística superior equivalente a Grado en Diseño Gráfico",
+        "Título de Grado en Enseñanzas Artísticas Superiores de Diseño Gráfico",
       institution: "Escuela Superior de Diseño · Estación Diseño",
       startDate: "2016",
       endDate: "2021",
       summary:
-        "Formación en identidad visual, diseño editorial, comunicación gráfica y desarrollo de proyectos creativos.",
-      highlights: [
-        "Identidad visual y branding.",
-        "Diseño editorial, composición y jerarquía visual.",
-        "Desarrollo de proyectos gráficos y comunicación de marca.",
-      ],
+        "Formación en identidad visual, diseño editorial, diseño web, animación, comunicación gráfica y desarrollo de proyectos creativos en todas sus etapas.",
+      downloadUrl: "/pdf/titulo-disenio-grafico.pdf",
     },
   ],
 
@@ -134,11 +126,11 @@ export const trajectoryContent: TrajectoryContent = {
       year: "2026",
       duration: "336 horas",
       summary:
-        "Formación teórico-práctica orientada al desarrollo full stack con Java, centrado en el trabajo sobre aplicaciones completas y en la colaboración en equipo. Durante el bootcamp participé en el desarrollo de Entre Recuerdos.",
+        "Formación teórico-práctica orientada al desarrollo full stack con Java, centrado en el trabajo sobre aplicaciones completas y en la colaboración en equipo. Como proyecto principal del bootcamp, participé en el diseño y desarrollo de {link:Entre Recuerdos}.",
       highlights: [
         "Participación en un proyecto colaborativo real, trabajando en equipo sobre la planificación, construcción y evolución del producto.",
         "Trabajo FullStack: estructura de la interfaz, componentes, lógica de aplicación, API REST y conexión con base de datos MySQL.",
-        "Aplicación de conocimientos durante el desarrollo del proyecto Entre Recuerdos.",
+        "Aplicación de conocimientos frontend y backend en el desarrollo de un MVP funcional.",
       ],
       technologies: [
         "HTML",
@@ -151,13 +143,14 @@ export const trajectoryContent: TrajectoryContent = {
         "MySQL",
         "Git",
       ],
+      downloadUrl: "/pdf/certificado-bootcamp.pdf",
     },
     {
       id: "soft-skills",
       title: "Soft Skills y Empleabilidad",
       institution: "Fundación Esplai",
       year: "2026",
-      duration: "55 horas",
+      duration: "56 horas",
       summary:
         "Formación centrada en el desarrollo de habilidades transversales aplicadas al entorno profesional, trabajando aspectos como comunicación, creatividad, inteligencia emocional, organización del tiempo y dinámicas de trabajo colaborativo.",
       highlights: [
@@ -172,6 +165,7 @@ export const trajectoryContent: TrajectoryContent = {
         "Gestión del tiempo",
         "Trabajo en equipo",
       ],
+      downloadUrl: "/pdf/certificado-bootcamp.pdf",
     },
   ],
 
@@ -183,6 +177,7 @@ export const trajectoryContent: TrajectoryContent = {
       year: "2026",
       summary:
         "Certificación orientada a fundamentos de cloud computing, servicios de Azure, seguridad, gobernanza y modelos de coste.",
+      downloadUrl: "/pdf/azure-az900.pdf",
     },
   ],
 
@@ -191,6 +186,7 @@ export const trajectoryContent: TrajectoryContent = {
       id: "english",
       label: "Inglés",
       value: "B2 · Cambridge English: First Certificate",
+      downloadUrl: "/pdf/certificado-cambridge-b2.pdf",
     },
     {
       id: "driving",

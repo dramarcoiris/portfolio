@@ -1,4 +1,4 @@
-export type ProjectCategory = "development" | "design";
+export type ProjectCategory = "fullstack" | "design";
 export type ProjectContext =
   | "personal"
   | "academic"
@@ -7,23 +7,24 @@ export type ProjectContext =
   | "bootcamp";
 
 export type ProjectSectionType =
-  | "development"
+  | "fullstack"
   | "design"
   | "challenge"
   | "solution"
   | "results";
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  kind?: "cover" | "gallery";
+}
 
 export interface ProjectSection {
   id: string;
   type: ProjectSectionType;
   title: string;
   content: string[];
-}
-
-export interface ProjectImage {
-  src: string;
-  alt: string;
-  kind?: "cover" | "gallery" | "mobile" | "desktop";
+  imageDetail?: ProjectImage;
 }
 
 export default interface Project {
@@ -35,6 +36,7 @@ export default interface Project {
 
   categories: ProjectCategory[];
   context?: ProjectContext;
+  institution?: string;
 
   role: string;
   year?: string;
