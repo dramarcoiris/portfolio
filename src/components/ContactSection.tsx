@@ -37,7 +37,7 @@ export default function Contact() {
 
             <div className="mt-6 flex flex-wrap items-center gap-6">
               <a
-                href="/Victoria_Cejas_CV.pdf"
+                href="/pdf/Victoria_Cejas_CV.pdf"
                 download="Victoria_Cejas_CV.pdf"
                 className="text-(--muted) transition-colors hover:text-(--accent)"
               >

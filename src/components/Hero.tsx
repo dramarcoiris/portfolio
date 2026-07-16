@@ -79,7 +79,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="/Victoria_Cejas_CV.pdf"
+                href="/pdf/Victoria_Cejas_CV.pdf"
                 download="Victoria_Cejas_CV.pdf"
                 className="btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto"
               >
