@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { trajectoryContent } from "../../data/trajectory";
-import { fadeUp } from "../../data/trajectoryAnimations";
+import { fadeUp } from "../../data/animations";
+import { FaFilePdf } from "react-icons/fa6";
 
-export default function AdditionalInfosection() {
+export default function AdditionalInfoSection() {
   const { additionalInfo } = trajectoryContent;
+
   return (
     <>
       <motion.div
@@ -27,9 +29,29 @@ export default function AdditionalInfosection() {
               <p className="text-sm uppercase tracking-[0.16em] text-(--muted)">
                 {item.label}
               </p>
-              <p className="mt-2 text-lg font-medium text-(--foreground)">
-                {item.value}
-              </p>
+
+              {/* Contenedor flexbox para alinear el valor y el PDF opcional */}
+              <div className="mt-2 flex flex-row items-center justify-between gap-4">
+                <p className="text-lg font-medium text-(--foreground) min-w-0 flex-1 wrap-break-word">
+                  {item.value}
+                </p>
+
+                {/* PDF del certificado (por ejemplo, para el inglés) */}
+                {item.downloadUrl && (
+                  <div className="flex shrink-0 items-center">
+                    <a
+                      href={item.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-2xl text-(--accent) hover:text-(--accent-dark) transition-colors focus:outline-none flex items-center justify-center"
+                      title="Ver documento PDF"
+                    >
+                      <FaFilePdf />
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

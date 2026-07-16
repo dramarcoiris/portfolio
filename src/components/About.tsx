@@ -2,25 +2,7 @@ import profileImage from "../assets/images/profile.jpg";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const fadeLeft = {
-  hidden: { opacity: 0, x: -32 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const fadeRight = {
-  hidden: { opacity: 0, x: 32 },
-  visible: { opacity: 1, x: 0 },
-};
-
-const sectionContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import { fadeLeft, fadeRight, sectionContainer } from "../data/animations";
 
 export default function About() {
   return (

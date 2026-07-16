@@ -6,13 +6,13 @@ interface Props {
 
 export default function ProjectCard({ project }: Props) {
   const isDesign = project.categories.includes("design");
-  const isDevelopment = project.categories.includes("development");
+  const isDevelopment = project.categories.includes("fullstack");
 
   const labelColorClass =
     isDesign && !isDevelopment ? "text-(--accent-warm)" : "text-(--muted)";
 
   const categoryLabel = project.categories
-    .map((category) => (category === "development" ? "Desarrollo" : "Diseño"))
+    .map((category) => (category === "fullstack" ? "Desarrollo" : "Diseño"))
     .join(" · ");
 
   const hiddenTechnologies =

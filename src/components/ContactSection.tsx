@@ -1,18 +1,5 @@
 import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const sectionContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import { fadeUp, sectionContainer } from "../data/animations";
 
 export default function Contact() {
   return (

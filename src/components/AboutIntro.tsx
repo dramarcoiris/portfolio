@@ -1,22 +1,5 @@
-import { motion, type Variants } from "framer-motion";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
-
-const staggerContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import { motion } from "framer-motion";
+import { fadeUpVariants, sectionContainer } from "../data/animations";
 
 export default function AboutIntro() {
   return (
@@ -27,11 +10,11 @@ export default function AboutIntro() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
+          variants={sectionContainer}
         >
           {/* Columna Izquierda */}
-          <div className="space-y-8">
-            <motion.div variants={fadeUp}>
+          <header className="space-y-8">
+            <motion.div variants={fadeUpVariants}>
               <span className="text-sm uppercase tracking-[0.2em] text-(--accent-warm) font-semibold block mb-3">
                 Hola, ¿qué tal? Soy Vicky
               </span>
@@ -46,7 +29,7 @@ export default function AboutIntro() {
             </motion.div>
 
             <motion.div
-              variants={fadeUp}
+              variants={fadeUpVariants}
               className="space-y-5 section-text leading-relaxed max-w-3xl"
             >
               <p>
@@ -72,11 +55,11 @@ export default function AboutIntro() {
                 tengo dos lobos dentro de mí.
               </p>
             </motion.div>
-          </div>
+          </header>
 
           {/* Columna Derecha */}
           <motion.div
-            variants={fadeUp}
+            variants={fadeUpVariants}
             className="p-6 md:p-8 space-y-8 rounded-2xl border border-(--accent-warm)/10 bg-white/60 backdrop-blur-md shadow-xs md:mt-8"
           >
             <div className="space-y-2">
