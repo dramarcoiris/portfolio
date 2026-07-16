@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
@@ -12,6 +13,10 @@ import ProjectGallery from "../components/projects/ProjectGallery";
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [slug]);
 
   if (!project) {
     return (
@@ -28,7 +33,11 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <section className="relative pt-24 md:pt-28 pb-10 max-w-vh bg-transparent">
+      {/* prop para obligar a React y Framer Motion a renderizar el componente desde cero */}
+      <section
+        key={slug}
+        className="relative pt-24 md:pt-28 pb-10 max-w-vh bg-transparent"
+      >
         <div className="page-container relative z-10">
           <ProjectHeader project={project} />
 
