@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ExperienceSection from "./ExperienceSection";
-import { fadeUp, stagger } from "../../data/trajectoryAnimations";
+import { fadeUp, sectionContainer } from "../../data/animations";
 import EducationSection from "./EducationSection";
 import ComplementaryTrainingSection from "./ComplementaryTrainingSection";
 import CertificationSection from "./CertificationSection";
@@ -17,7 +17,7 @@ export function SectionHeader({
 }) {
   return (
     <motion.div
-      variants={stagger}
+      variants={sectionContainer}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -50,20 +50,22 @@ export default function Trajectory() {
         <ExperienceSection />
 
         {/* FORMACIÓN */}
-        <div className="mt-28">
+        <section className="mt-20 lg:mt-28">
           <EducationSection />
-        </div>
+        </section>
 
         {/* FORMACIÓN COMPLEMENTARIA */}
-        <div className="mt-28">
+        <section className="mt-20 lg:mt-28">
           <ComplementaryTrainingSection />
-        </div>
+        </section>
 
         {/* CERTIFICACIONES + INFO ADICIONAL */}
-        <div className="mt-28 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <CertificationSection />
-          <AdditionalInfosection />
-        </div>
+        <section className="mt-6 lg:mt-6">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <CertificationSection />
+            <AdditionalInfosection />
+          </div>
+        </section>
       </div>
     </section>
   );

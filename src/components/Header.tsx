@@ -8,7 +8,9 @@ type NavLinkItem =
 
 const navLinks: NavLinkItem[] = [
   { label: "Trayectoria", type: "route", href: "/trayectoria" },
-  { label: "Proyectos", type: "route", href: "/proyectos" },
+  { label: "Tecnologías", type: "anchor", href: "/#skills" },
+  { label: "Proyectos", type: "anchor", href: "/#projects" },
+  { label: "Contacto", type: "anchor", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -18,6 +20,7 @@ export default function Header() {
   const location = useLocation();
   const isLanding = location.pathname === "/";
 
+  // Control del scroll de la página para la visibilidad del header
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
@@ -31,17 +34,23 @@ export default function Header() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const getLinkHref = (link: NavLinkItem) => {
-    if (link.type === "route") return link.href;
-    return isLanding ? link.href : `/${link.href}`;
+  // Control del scroll
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    closeMenu();
+
+    const targetId = href.replace("/#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      e.preventDefault();
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  // En desktop:
-  // - landing arriba del todo => header oculto
-  // - landing con scroll => header visible
-  // - páginas internas => header visible siempre
   const showDesktopHeader = !isLanding || isScrolled;
-
   const showMobileHeader = true;
 
   return (
@@ -62,12 +71,12 @@ export default function Header() {
           `}
         >
           <div className="flex items-center justify-between">
-            <div className="flex items-center min-w-19.5 sm:min-w-24">
+            <div className="flex items-center min-w-30 sm:min-w-24">
               <Link
                 to="/"
                 className={`
-                  hidden md:inline-flex items-center transition-opacity duration-300 hover:opacity-80
-                  ${showDesktopHeader ? "opacity-100" : "opacity-0 pointer-events-none"}
+                  inline-flex items-center transition-opacity duration-300 hover:opacity-80
+                  ${showDesktopHeader ? "opacity-100" : "opacity-100 md:opacity-0 md:pointer-events-none"}
                 `}
                 onClick={closeMenu}
                 aria-label="Ir a la página de inicio"
@@ -76,7 +85,7 @@ export default function Header() {
                 <img
                   src="/logo.svg"
                   alt="SOYVICKY"
-                  className="block h-4 w-auto sm:h-5"
+                  className="block h-4.5 w-auto"
                 />
               </Link>
             </div>
@@ -92,9 +101,15 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <li key={`${link.type}-${link.href}`}>
                     <Link
-                      to={getLinkHref(link)}
+                      to={link.href}
                       className="nav-link"
-                      onClick={closeMenu}
+                      onClick={(e) => {
+                        if (link.type === "anchor") {
+                          handleAnchorClick(e, link.href);
+                        } else {
+                          closeMenu();
+                        }
+                      }}
                       tabIndex={showDesktopHeader ? 0 : -1}
                     >
                       {link.label}
@@ -104,7 +119,7 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Botón móvil: visible siempre */}
+            {/* Botón móvil */}
             <button
               type="button"
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -126,6 +141,7 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Menú móvil desplegable */}
         {isMenuOpen && (
           <div className="mx-auto mt-3 max-w-5xl md:hidden">
             <div className="rounded-3xl border border-(--border) bg-(--surface) p-4 shadow-sm">
@@ -134,8 +150,14 @@ export default function Header() {
                   {navLinks.map((link) => (
                     <li key={`${link.type}-${link.href}`}>
                       <Link
-                        to={getLinkHref(link)}
-                        onClick={closeMenu}
+                        to={link.href}
+                        onClick={(e) => {
+                          if (link.type === "anchor") {
+                            handleAnchorClick(e, link.href);
+                          } else {
+                            closeMenu();
+                          }
+                        }}
                         className="block rounded-2xl px-4 py-3 text-sm text-(--foreground) transition-colors hover:bg-(--accent-soft)"
                       >
                         {link.label}

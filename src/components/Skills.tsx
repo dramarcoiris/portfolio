@@ -1,29 +1,16 @@
 import { motion } from "framer-motion";
 import { skills } from "../data/skills";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
+import { fadeUp, sectionContainer } from "../data/animations";
 
 export default function Skills() {
   return (
-    <section className="section section-anchor">
+    <section id="skills" className="section section-anchor">
       <div className="page-container">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={staggerContainer}
+          variants={sectionContainer}
         >
           <motion.p variants={fadeUp} className="section-label">
             Tecnologías

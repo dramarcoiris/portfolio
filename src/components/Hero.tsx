@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaArrowDownLong } from "react-icons/fa6";
+import { FiDownload } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
+import { fadeUp } from "../data/animations";
 
 export default function Hero() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -62,12 +58,29 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4"
             >
-              <Link to="/proyectos" className="btn-primary w-full sm:w-auto">
+              <a
+                href="#projects"
+                className="btn-primary w-full sm:w-auto text-center"
+              >
                 Ver proyectos
-              </Link>
+              </a>
 
-              <a href="#contact" className="btn-secondary w-full sm:w-auto">
-                Contacto
+              <a
+                href="/Victoria_Cejas_CV.pdf"
+                download="Victoria_Cejas_CV.pdf"
+                className="btn-secondary flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <span>Descargar CV</span>
+                <FiDownload className="text-base" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/victoria-cb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full sm:w-auto"
+              >
+                LinkedIn
               </a>
             </motion.div>
 

@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import type { ProjectCategory } from "../types/Project";
 import ProjectCard from "./ProjectCard";
+import { Link } from "react-router-dom";
+import { fadeUp, sectionContainer } from "../data/animations";
 
 type Filter = "all" | ProjectCategory;
 
@@ -11,29 +13,6 @@ interface FilterButtonProps {
   active: boolean;
   onClick: () => void;
 }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const headerContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const gridContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 function FilterButton({ children, active, onClick }: FilterButtonProps) {
   return (
@@ -60,13 +39,13 @@ export default function Projects() {
   }, [filter]);
 
   return (
-    <section className="section section-anchor">
+    <section id="projects" className="section section-anchor">
       <div className="page-container">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={headerContainer}
+          variants={sectionContainer}
         >
           <motion.p variants={fadeUp} className="section-label">
             Proyectos
@@ -91,8 +70,8 @@ export default function Projects() {
             </FilterButton>
 
             <FilterButton
-              active={filter === "development"}
-              onClick={() => setFilter("development")}
+              active={filter === "fullstack"}
+              onClick={() => setFilter("fullstack")}
             >
               Desarrollo
             </FilterButton>
@@ -109,13 +88,19 @@ export default function Projects() {
         <motion.div
           key={filter}
           className="mt-12 grid gap-6 md:grid-cols-2"
-          variants={gridContainer}
+          variants={sectionContainer}
           initial="hidden"
           animate="visible"
         >
           {filteredProjects.map((project) => (
             <motion.div key={project.id} variants={fadeUp}>
-              <ProjectCard project={project} />
+              <Link
+                to={`/proyectos/${project.slug}`}
+                key={project.id}
+                className="block group"
+              >
+                <ProjectCard project={project} />
+              </Link>
             </motion.div>
           ))}
         </motion.div>

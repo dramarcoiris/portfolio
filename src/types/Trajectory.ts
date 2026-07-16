@@ -27,7 +27,7 @@ export interface EducationItem {
   startDate?: string;
   endDate?: string;
   summary?: string;
-  highlights?: string[];
+  downloadUrl?: string;
 }
 
 export interface TrainingItem {
@@ -39,6 +39,7 @@ export interface TrainingItem {
   summary?: string;
   highlights?: string[];
   technologies?: string[];
+  downloadUrl?: string;
 }
 
 export interface CertificationItem {
@@ -47,12 +48,14 @@ export interface CertificationItem {
   issuer: string;
   year?: string;
   summary?: string;
+  downloadUrl?: string;
 }
 
 export interface AdditionalInfoItem {
   id: string;
   label: string;
   value: string;
+  downloadUrl?: string;
 }
 
 export interface TrajectoryContent {
