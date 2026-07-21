@@ -23,14 +23,14 @@ export default function ProjectCard({ project }: Props) {
     project.images?.[0];
 
   return (
-    <article className="surface-card overflow-hidden">
+    <article className="surface-card project-card-hover overflow-hidden">
       <div className="block h-full">
         {coverImage && (
           <div className="project-preview overflow-hidden">
             <img
               src={coverImage.src}
               alt={coverImage.alt}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         )}
