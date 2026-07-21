@@ -76,6 +76,14 @@ body {
     @apply hover:-translate-y-1 hover:shadow-md;
   }
 
+  .project-card-hover {
+  @apply hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .project-card-hover:hover {
+    border-color: var(--accent);
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-medium tracking-[0.01em] text-white transition;
     background-color: var(--accent);
